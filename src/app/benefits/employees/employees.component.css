@@ -1,0 +1,26 @@
+/* component styles go here */
+
+.spacer {
+  height: 10px;
+}
+
+.form {
+  margin: 5px;
+} 
+
+.dep-totals {
+  font-style: italic;
+}
+
+.div-table {
+  margin: 10px;  
+}
+
+.col, .col-4, .col-8 {
+    border: 1px solid black;
+} 
+
+.header {
+  background-color: #007bff;
+  color: white;
+}

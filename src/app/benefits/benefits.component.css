@@ -1,0 +1,15 @@
+
+/* component styles go here */
+dt {
+    font-weight: bold;
+    text-decoration: underline;
+}
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+.employee-header {
+  font-weight: bold;
+  text-decoration: underline;
+}

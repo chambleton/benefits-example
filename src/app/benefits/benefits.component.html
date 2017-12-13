@@ -1,0 +1,11 @@
+<div>
+  <dl>
+    <dt>Annual Totals</dt>
+    <dd>Employees: {{BenefitsService.getEmployees().length}} ({{BenefitsService.getTotalEmployeesAndDependents()}} including dependents)</dd>
+    <dd>Benefits: {{BenefitsService.getTotalAnnualBenefits() | currency}}</dd>
+    <dd>Salaries: {{BenefitsService.getTotalAnnualSalaries() | currency}}</dd>    
+  </dl> 
+
+  <span class="employee-header">Employees</span>
+  <employees></employees>
+</div>

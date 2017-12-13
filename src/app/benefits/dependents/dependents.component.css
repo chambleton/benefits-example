@@ -1,0 +1,16 @@
+.dependents {
+  margin-left: 10px;
+}
+
+.col, .col-4, .col-8 {
+    border: 1px solid black;
+} 
+
+.div-table {
+  margin: 2px;  
+}
+
+.header {
+  background-color: #007bff;
+  color: white;
+}

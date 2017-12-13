@@ -1,0 +1,27 @@
+
+<div class="dependents">
+
+  <div class="div-table" *ngIf="employee.dependents.length > 0">
+    <div class="row header">
+      <div class="col">Dependent</div>
+      <div class="col">Deductions</div>
+      <div class="col">Benefits (yr)</div>
+      <div class="col">&nbsp;</div>
+    </div>
+      <div class="row" *ngFor="let dependent of employee.dependents">
+      <div class="col"><strong>{{dependent.name}}</strong></div>
+      <div class="col">{{dependent.benefitsPerPayPeriod | currency}}</div>
+      <div class="col">{{dependent.benefits | currency}}</div>
+      <div class="col"><a href="#" (click)="BenefitsService.deleteDependent(employee, dependent)"> (delete) </a></div>
+    </div>
+  </div>
+
+  <form #depForm="ngForm" (ngSubmit)="submitForm()">
+    <input id="name" name="name" placeholder="Dependent Name" required minlength="3" [(ngModel)]="name">
+
+    <button type="button" class="btn btn-sm btn-primary" type="submit" [disabled]="!depForm.form.valid">
+        Add Dependent
+    </button>
+  </form>
+  
+</div>

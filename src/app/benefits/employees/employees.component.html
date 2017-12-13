@@ -1,0 +1,38 @@
+
+<form #empForm="ngForm" (ngSubmit)="submitForm()">
+  <input id="name" name="name" placeholder="Employee Name" required minlength="3" [(ngModel)]="name">
+
+  <button type="button" class="btn btn-sm btn-primary" type="submit" [disabled]="!empForm.form.valid">
+      Add Employee
+  </button>
+</form>
+ <div class="spacer"></div>
+
+<div class="div-table" *ngIf="BenefitsService.getEmployees().length > 0">
+  <div class="row header">
+    <div class="col">Employee</div>
+    <div class="col">Benefits (yr)</div>
+    <div class="col">Deductions</div>
+    <div class="col">Salary</div>
+    <div class="col">Net Pay</div>
+    <div class="col"></div>
+  </div>
+  <div *ngFor="let employee of BenefitsService.getEmployees()">
+  <div class="row">
+    <div class="col"><strong>{{employee.name}}</strong></div>
+    <div class="col">{{employee.benefits | currency}}</div>
+    <div class="col">{{employee.benefitsPerPayPeriod | currency}}</div>
+    <div class="col">{{employee.salaryPerPeriod | currency}}</div>
+    <div class="col">{{employee.netSalaryPerPeriod | currency}}</div>
+    <div class="col"><a href="#" (click)="BenefitsService.deleteEmployee(employee)"> (delete) </a></div>
+  </div>  
+  <div class="row">
+    <div class="col-4"><a href="#" (click)="employee.expandDependents = !employee.expandDependents"> Dependents <span *ngIf="employee.expandDependents">(hide)</span> </a> </div>
+    <div class="col-8"><div class="dep-totals" *ngIf="!employee.expandDependents">
+                ({{employee.dependents.length}} dep) - Dependent Deductions: {{employee.dependentBenefitsPerPayperiod | currency}}
+              </div>
+              <dependents *ngIf="employee.expandDependents" [employee]="employee"></dependents></div>
+              
+  </div>
+  </div>
+</div>
